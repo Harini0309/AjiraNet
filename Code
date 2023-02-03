@@ -1,0 +1,73 @@
+import java.util.*;
+public class cdc {
+	public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+       String h=sc.nextLine();
+       String v[]=h.split(" ");
+       ArrayList<String>computer=new ArrayList<>();
+       computer.add("A1");
+       computer.add("A2");
+
+       ArrayList<String>repeater=new ArrayList<>();
+       ArrayList<String>connection=new ArrayList<>();
+       String f=v[0];
+      if(f.equals("ADD")) {
+    	  if(v[1].equals("COMPUTER") && !computer.contains(v[2])) {
+    		  computer.add(v[2]);
+    		  System.out.println("Successfully added");
+    	  }
+    	  else if(v[1].equals("COMPUTER") && computer.contains(v[2])) {
+    		  System.out.println("Error:Already exsits");
+    	  }
+    	  else if(v[1].equals("REPEATER") && !repeater.contains(v[2])) {
+    		  repeater.add(v[2]);
+    		  System.out.println("Successfully added");
+    	  }
+    	  else if(v[1].equals("COMPUTER") && repeater.contains(v[2])) {
+    		  System.out.println("Error:Already exsist");
+    	  }
+    	  else {
+    		  System.out.println("Error: Invalid command syntax");
+    	  }
+      }
+      else if(f.equals("SET_DEVICE_STRENGTH")) {
+    	  if(computer.contains(v[1]) && Integer.parseInt(v[2])!=0) {
+    		 computer.add("v[2]");
+    		 System.out.println("Successfully set signal");
+    	  }
+    	  else {
+    		  System.out.println("Error:Invalid command");
+    	  }
+      }
+      else if(f.equals("CONNECT")) {
+    	  if(v[1].equals(v[2])){
+    		 System.out.println("Error: Same device");
+    	  }
+         else if((computer.contains(v[1]) || repeater.contains(v[1])) && (computer.contains(v[2]) || repeater.contains(v[2]))) {
+    		System.out.println("Successfully connected");
+    		connection.add(v[1]+" "+v[2]);
+    	  }
+         else {
+        	 System.out.println("Error:Invalid connection");
+         }}
+      else if(f.equals("INFO_ROUTE")) {
+    	  if(v[2].equals(v[1])) {
+    		  System.out.println(v[1]+"->"+v[1]);
+    	  }
+    	  else if(v.length==1) {
+    		  System.out.println("Error: invalid");
+    	  }
+    	  else if(computer.contains(v[1]) && computer.contains(v[2])) {
+    		  
+    	  }
+      }
+    else {
+    		  
+    	  }
+    	 
+     
+      System.out.println(computer);
+      System.out.println(repeater);
+      System.out.println(connection);
+	}
+}
